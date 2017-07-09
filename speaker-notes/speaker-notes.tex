@@ -1,0 +1,302 @@
+\documentclass{article}
+\usepackage[landscape,centering]{geometry}
+
+\geometry{
+    paperwidth=3in,
+    paperheight=5in,
+    margin=0.5cm
+}
+
+\begin{document}\sloppy
+\section{Title}
+\begin{itemize}
+    \item Introduction. Medici Ventures, blockchain.
+    \item Explain how this talk came to be. Differing opinions. Poorly written
+        and organized tests.
+    \item Developers have love/hate relationship with tests.
+    \item Focus is on unit testing.
+\end{itemize}
+
+\newpage
+\section{Opinionated}
+\begin{itemize}
+    \item Intended as humour.
+    \item Disagreements are opportunities for learning.
+\end{itemize}
+
+\newpage
+\section{Screed}
+\begin{itemize}
+    \item Screed is a cool word.
+    \item Your mileage may vary.
+\end{itemize}
+
+\newpage
+\section{I Hate UT}
+\begin{itemize}
+    \item Developers seem to hate unit tests.
+    \item Often an afterthought. Don't leave time for writing tests.
+    \item Unit tests are often stale.
+\end{itemize}
+
+\newpage
+\section{UT Are Not IT}
+\begin{itemize}
+    \item Wife asked ``what does a unit test do...''
+    \item Two distinct kinds of tests: Unit tests and integration tests.
+    \item Unit tests test our own units of code, hopefully isolated.
+    \item Integration tests, also often called ``system'' or ``functional''
+        tests, are full stack tests winding it's way through all of our code
+        paths.
+    \item Integration tests are often fragile.
+\end{itemize}
+
+\newpage
+\section{Not UT If...}
+\begin{itemize}
+    \item Test is not a unit test if...
+    \item It talks to a database.
+    \item It communicates across the network.
+    \item It touches the filesystem.
+    \item It can't run at the same time as your other unit tests.
+    \item You must do special things to your environment.
+    \item Michael Feathers.
+\end{itemize}
+
+\newpage
+\section{Unit Tests Should Be FAST!}
+\begin{itemize}
+    \item Waiting 30 minutes for tests to run is 30 minutes of your life you'll
+        never get back.
+    \item It means you will avoid running tests.
+\end{itemize}
+
+\newpage
+\section{Unit Tests Should Be Segregated}
+\begin{itemize}
+    \item Unit tests and integration tests should be segregated.
+    \item They serve different purposes. Mingling them makes it impossible to
+        run them separately.
+    \item Integration tests require external dependencies that are difficult to
+        implement in a developer environment.
+    \item During development, devs should be running unit tests often. Segregation
+        of unit and integration tests reduces friction.
+\end{itemize}
+
+\newpage
+\section{Unit Tests Should Assert One Thing}
+\begin{itemize}
+    \item Unit tests should be simple.
+    \item Multiple assertions make it difficult to understand what failed.
+    \item The exception is when multiple assertions are used to confirm results
+        that are related.
+\end{itemize}
+
+\newpage
+\section{Unit Tests Should Be Run Often}
+\begin{itemize}
+    \item Before modifying code.
+    \item After code change.
+    \item At night before you leave.
+    \item In the morning when you arrive.
+    \item Just because...
+\end{itemize}
+
+\newpage
+\section{Tips}
+\begin{itemize}
+    \item Adopting some best practices can make unit tests more useful.
+\end{itemize}
+
+\newpage
+\section{Tips: Naming}
+\begin{itemize}
+    \item Two hardest things in computer science...
+    \item Unit test names should act as a specification.
+    \item Describe what is expected.
+    \item Helps locate the problem on failed test.
+\end{itemize}
+
+\newpage
+\section{Tips: Comments}
+\begin{itemize}
+    \item Commenting your tests improves readability.
+    \item Helps document your units.
+\end{itemize}
+
+\newpage
+\section{Tips: Isolate}
+\begin{itemize}
+    \item Mocks, stubs, fakes, test doubles.
+    \item Loose coupling helps with this.
+\end{itemize}
+
+\newpage
+\section{Tips: Overspecification}
+\begin{itemize}
+    \item Leads to tests coupling strongly to production code and limiting
+        ability to refactor.
+    \item Sign of this is testing implementation details instead of the overall
+        behavior.
+    \item Overusing mocks is an indicator of overspecification.
+    \item Prefer stubs over mocks as much as possible.
+    \item Test should focus on testing the results of a function instead of the
+        internal actions. Not always possible. Refer to design.
+\end{itemize}
+
+\newpage
+\section{Tips: Brevity}
+\begin{itemize}
+    \item Tests should be short and to the point.
+    \item Long elaborate tests indicate overspecification or the code is in
+        need of refactoring.
+    \item Brevity helps us maintain focus on tests as documentation.
+\end{itemize}
+
+\newpage
+\section{Tips: Setup}
+\begin{itemize}
+    \item Setup common dependencies for each suite of tests.
+    \item Teardown resets dependencies.
+    \item Prevents fragile unit tests by breaking dependencies between tests.
+\end{itemize}
+
+\newpage
+\section{Tips: Arrange Act Assert}
+\begin{itemize}
+    \item Perform any test specific setup that needs to be done.
+    \item Call the unit.
+    \item Assert to confirm the single result, even if multiple asserts are
+        needed for this purpose.
+\end{itemize}
+
+\newpage
+\section{Tips: DAMP vs DRY}
+\begin{itemize}
+    \item Don't Repeat Yourself.
+    \item Declarative And Meaningful Phrases
+    \item Each test is an isolated chapter in your test book. If removing a
+        piece of logic hurts the readability, then don't remove it.
+    \item From a maintenance perspective, don't centralize a piece of logic that
+        can't be changed on it's own.
+\end{itemize}
+
+\newpage
+\section{Tips: Perfection}
+\begin{itemize}
+    \item Remember, you're trying to run a business!
+    \item Perfection takes a lot of time. Don't waste time.
+    \item The test can be refactored if it fails when it shouldn't.
+    \item Insufficient isolation can be fixed later if necessary.
+\end{itemize}
+
+\newpage
+\section{Tips: Code Coverage}
+\begin{itemize}
+    \item Some devs don't like code coverage.
+    \item I get a kick out of seeing my reports improve.
+    \item Ideas for tests often come from the coverage report.
+    \item How do you know what you're really testing?
+    \item Code coverage reports help reason about design and guide refactor.
+    \item Spot trends in testing coverage over time.
+    \item Test quality != code coverage.
+\end{itemize}
+
+\newpage
+\section{Tips: Test Driven Development}
+\begin{itemize}
+    \item Does not mean Test Deficit Disorder.
+    \item Test last: Risks, design problems and bugs discovered late. Can
+        descend into frustrating spiral of debugging and rework.
+    \item Test last leads to heavy refactoring burdens.
+    \item You might not leave time for adequate test design, leading to being
+        rushed. May miss important cases.
+    \item Test first? I haven't even figured out what to name stuff yet...
+    \item Test first forces you to specify what you are building in advance
+        of building it.
+    \item Risk of rework. Mini waterfall. Discoveries during development that
+        make you want to iterate.
+    \item Test driven development. Designing tests and code together.
+    \item Allow the design of the tests and the code emerge as you develop.
+    \item TDD, ahhh, nirvana. Iterative cycle. Helps guide to clear design.
+    \item Poorly designed code is hard to test.
+    \item If writing unit tests is hard, your code is probably poorly designed.
+\end{itemize}
+
+\newpage
+\section{Tips: Limitations}
+\begin{itemize}
+    \item Unit tests will not prove correctness. GIGO.
+    \item Unit tests won't find integration errors.
+    \item Unit tests will not test non-functional requirements like performance
+        and security.
+\end{itemize}
+
+\newpage
+\section{Purpose: Why Do We Do It?}
+\begin{itemize}
+    \item Your own personal development process.
+    \item Developer responsibility. Not optional extra or job of seperate test team.
+    \item Avoid embarrassing bugs in your code that others find.
+    \item To help your team not break your code
+    \item Writing code is how you tell your colleagues how you feel about them.
+    \item Psychopathic developer who knows where you live.
+\end{itemize}
+
+\newpage
+\section{Purpose: What To Build}
+\begin{itemize}
+    \item Unit tests cannot be written without a good understanding of what to
+        build. Forces business requirements.
+\end{itemize}
+
+\newpage
+\section{Purpose: Better Design}
+\begin{itemize}
+    \item Anecdote about PDF Form Filler being untestable.
+    \item Well designed code is testable. If your code is hard to test, it is
+        not well designed.
+    \item Decompose the problem into units that are independently testable.
+        (loose coupling)
+    \item Forces thinking of interface seperately from implementation.
+    \item Just the discipline of writing unit tests helps with better design.
+\end{itemize}
+
+\newpage
+\section{Purpose: Documentation}
+\begin{itemize}
+    \item Unit tests document our units. Comments help with this.
+    \item Unit tests should be highly readable.
+    \item Think of them as an executable specification. Tests document the
+        behavior of the code in a form you can execute.
+    \item Demonstrates how a unit is intended to be used, how to construct
+        it, call the method, what kind of arguments, what kind of results.
+\end{itemize}
+
+\newpage
+\section{Purpose: Fear-Free Refactor}
+\begin{itemize}
+    \item Adding new functionality or just refactoring units is easier. Unit
+        tests let us know quickly when something is broken.
+\end{itemize}
+
+\newpage
+\section{Purpose: Regression Protection}
+\begin{itemize}
+    \item Something that worked before and now doesn't.
+    \item Changes to unknown dependencies can cause failures.
+    \item Test failure messages should be very clear and readable so it is
+        easy to find any failures.
+\end{itemize}
+
+\newpage
+\section{Purpose: I Love Unit Tests}
+\begin{itemize}
+    \item Unit tests are your friend. They make your life easier.
+    \item Unit tests are challenging and fun!
+    \item Unit tests make you a better developer.
+    \item Unit tests earn the admiration of your colleagues.
+    \item Unit tests are 100\% organic, non-GMO, and gluten-free.
+    \item Unit tests are both good and good for you.
+\end{itemize}
+\end{document}
