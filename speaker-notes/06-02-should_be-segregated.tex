@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[landscape,centering]{geometry}
+
+\geometry{
+    paperwidth=3in,
+    paperheight=5in,
+    margin=0.5cm
+}
+
+\begin{document}\sloppy
+\section{Unit Tests Should Be Segregated}
+\begin{itemize}
+    \item Unit tests and integration tests should be segregated.
+    \item They serve different purposes. Mingling them makes it impossible to
+        run them separately.
+    \item Integration tests require external dependencies that are difficult to
+        implement in a developer environment.
+    \item During development, devs should be running unit tests often. Segregation
+        of unit and integration tests reduces friction.
+\end{itemize}
+\end{document}
