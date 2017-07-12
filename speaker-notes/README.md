@@ -8,3 +8,6 @@ manual feed:
 For page ranges, try this:
 
     lpr -PBobMP -o page-ranges=1-4,7,9,10-12 -o filename.ps
+
+
+https://www.cups.org/doc/options.html
